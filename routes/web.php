@@ -28,7 +28,7 @@ Route::get('author/{author:username}', function(User $author) {
     return view('posts.index', [
         'posts' => $author->posts,
     ]);
-});
+})->middleware('admin');
 
 Route::get('register',[RegisterController::class,'register'])->middleware('guest');
 Route::post('register',[RegisterController::class, 'store'])->middleware('guest');
